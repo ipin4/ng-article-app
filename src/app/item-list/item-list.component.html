@@ -1,0 +1,13 @@
+<h2>Articles:</h2>
+<ul>
+  <a routerLink="add"><li class="add-todo">Add New Article</li></a>
+  <li *ngFor="let todo of showedTodos; let i = index" id="{{todo.id}}" (click)="openContent(i)">
+    <div class="dataContainer">
+      <div class="titleWithNumber" (click)="openEdit(todo.id)">{{i}}: {{todo.title}}</div>
+      <div class="itemContext" *ngIf="todo.isOpen">
+        <div (click)="openEdit(todo.id)">{{todo.content}}</div>
+      </div>
+      <div class="date">{{todo.date}}</div>
+    </div>
+  </li>
+</ul>

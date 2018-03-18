@@ -1,0 +1,51 @@
+ul {
+  list-style: none;
+  padding: 0;
+
+  li {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #222228;
+    &.add-todo {
+      display: block;
+      text-transform: uppercase;
+      text-align: center;
+      background-color: #38383c;
+      cursor: pointer;
+      &:hover {
+        background-color: #222228;
+      }
+    }
+
+    input {
+      margin: 10px 15px 10px 10px;
+    }
+
+    .dataContainer {
+      width: 100%;
+      margin: 10px;
+      .date {
+        font-size: 10px;
+        color: #616161;
+        margin-top: 10px;
+      }
+      .titleWithNumber {
+        cursor: text;
+        width: max-content;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+      .itemContext {
+        cursor: text;
+        color: #38383c;
+        margin: 10px 0;
+        padding: 10px;
+        border: 2px solid;
+        font-size: 12px;
+      }
+    }
+  }
+}
