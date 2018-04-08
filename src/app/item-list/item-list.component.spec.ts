@@ -1,4 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from '../reducers/reducers';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { ItemListComponent } from './item-list.component';
 
@@ -8,6 +12,11 @@ describe('ItemListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        FormsModule,
+        StoreModule.forRoot(reducers),
+        RouterTestingModule,
+      ],
       declarations: [ ItemListComponent ]
     })
     .compileComponents();
@@ -19,7 +28,18 @@ describe('ItemListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create item-list component', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('showedTodos has one item on init state', () => {
+    expect(component.showedTodos.length).toEqual(1);
+  });
+
+  it('render item with correct title on init state', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('li#_29e46mss1')
+      .querySelector('div.titleWithNumber').textContent)
+        .toEqual('0: Title');
   });
 });
